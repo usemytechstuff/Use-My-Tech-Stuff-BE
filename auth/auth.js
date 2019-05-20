@@ -61,6 +61,20 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy(error => {
+            if (error) {
+                res.send(error);
+            } else {
+                res.send('You are logged out');
+            }
+        })
+    } else {
+        res.end();
+    }
+});
+
+router.post('/checkauth', (req, res) => {
     const token = req.body.token;
     jwt.verify(token, secret, err => {
         if (err) {
