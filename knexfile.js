@@ -33,14 +33,14 @@ module.exports = {
       directory: './data/seeds',
     },
   },
-  production: {
-    client: 'pg',
-    connection: '',
-    migrations: {
-      directory: './data/migrations'
-    }, 
-    seeds: {
-      directory: './data/seeds',
-    },
-  }
+  // production: {
+  //   client: 'pg',
+  //   connection: '',
+  //   migrations: {
+  //     directory: './data/migrations'
+  //   }, 
+  //   seeds: {
+  //     directory: './data/seeds',
+  //   },
+  // }
 };
