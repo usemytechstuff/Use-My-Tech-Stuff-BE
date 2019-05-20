@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
         .notNullable();
         //.unique() <<<<<< uncomment before final
       user
-        .string("password", 32)
+        .string("password", 128)
         .notNullable();
       user
         .string("email", 50);
