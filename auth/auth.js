@@ -70,7 +70,7 @@ router.get('/logout', (req, res) => {
             }
         })
     } else {
-        res.end();
+        res.end('Goodbye');
     }
 });
 
