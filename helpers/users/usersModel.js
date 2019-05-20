@@ -1,4 +1,4 @@
-const db = require('../data/dbConfig.js');
+const db = require('../../data/dbConfig');
 
 module.exports = {
   add,
@@ -14,7 +14,8 @@ function find() {
 
 function findBy(filter) {
   return db('users')
-    .where(filter);
+    .where(filter)
+    .first();
 }
 
 async function add(user) {

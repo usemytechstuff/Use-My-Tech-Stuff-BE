@@ -10,7 +10,10 @@ exports.up = function(knex, Promise) {
       user
         .string("password", 32)
         .notNullable();
-    //   user <<<<<< future table
+      user
+        .string("email", 50);
+      // user
+      // user <<<<<< future table
   })
 };
 
