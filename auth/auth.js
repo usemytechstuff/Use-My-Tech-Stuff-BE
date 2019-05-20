@@ -18,7 +18,7 @@ function generateToken(user) {
     return jwt.sign(payload, secrets.jwtSecret, options);
 };
 
-router.post('/register', async (req, res) => {
+router.post('/register', (req, res) => {
     let user = req.body;
     const email = user.email;
     const username = user.username;
@@ -29,8 +29,8 @@ router.post('/register', async (req, res) => {
         res.status(400).json({ message: "Please provide valid email" });
     } else if (!username || !password) {
         res.status(401).json({ message: "Must enter a username and password" });
-    } else if (await User.findBy({ username })) {
-        res.status(400).json({ message: "That username is taken" })
+    // } else if (await User.findBy({ username })) {
+    //     res.status(400).json({ message: "That username is taken" })
     // } else if (password.length < 8) {
     //     res.status(400).json({ message: "Password must be at least 8 characters" })
     } else {
