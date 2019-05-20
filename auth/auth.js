@@ -18,7 +18,7 @@ function generateToken(user) {
     return jwt.sign(payload, secrets.jwtSecret, options);
 };
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
     let user = req.body;
     const email = user.email;
     const username = user.username;
