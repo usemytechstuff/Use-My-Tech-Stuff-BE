@@ -29,10 +29,10 @@ router.post('/register', (req, res) => {
         res.status(400).json({ message: "Please provide valid email" });
     } else if (!username || !password) {
         res.status(401).json({ message: "Must enter a username and password" });
-    // } else if (await User.findBy({ username })) {
-    //     res.status(400).json({ message: "That username is taken" })
-    // } else if (password.length < 8) {
-    //     res.status(400).json({ message: "Password must be at least 8 characters" })
+    } else if (await User.findBy({ username })) {
+        res.status(400).json({ message: "That username is taken" })
+    } else if (password.length < 8) {
+        res.status(400).json({ message: "Password must be at least 8 characters" })
     } else {
         User.add(user)
         .then(saved => {

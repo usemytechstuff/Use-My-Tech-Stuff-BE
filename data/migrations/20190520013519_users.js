@@ -5,8 +5,8 @@ exports.up = function(knex, Promise) {
       user.increments();
       user
         .string("username", 32)
-        .notNullable();
-        //.unique() <<<<<< uncomment before final
+        .notNullable()
+        .unique();
       user
         .string("password", 128)
         .notNullable();
