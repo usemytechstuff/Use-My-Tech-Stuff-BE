@@ -60,7 +60,7 @@ router.post('/login', (req, res) => {
     });
 });
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
     const token = req.body.token;
     jwt.verify(token, secret, err => {
         if (err) {
