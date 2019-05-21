@@ -17,7 +17,7 @@ exports.up = function(knex, Promise) {
       user
         .string("lastname", 32);
       user
-        .bigInteger("phone", 15);
+        .string("phone", 15);
       user
         .string("address");
       // user
