@@ -28,8 +28,8 @@ https://usemytechstuffapp.herokuapp.com
 # Auth Routes
 ## Register /api/register (POST)
 **User Table:**
-- username <-- Required (string) (unique)
-- password <-- Required (string)
+- username <-- Required (string) (unique) (<32 char)
+- password <-- Required (string) (>7 char)
 - email (string)
 - firstname (string)
 - lastname (string)
@@ -159,19 +159,32 @@ Message and example of body with any nonrequired inputs
 ## Update Specific item (PUT)
 #### Must be a registered user or logged in to add item
 #### 202 Success Responds with
-Message and example with truthy confirmation
+Message and example with updated values
 ```
 {
     "message": "The following updates have been made:",
-    "item": 1
+    "item": {
+        "id": 10,
+        "owner": 1,
+        "title": "new 8K TV updated!",
+        "type": "TV,
+        "description": "great quality, clear picture. price reduced!",
+        "price": 20,
+        "availability": true,
+        "brand": "Sony",
+        "model": Z9G,
+        "imgURL": null,
+        "renter": null
+    }
 }
 ```
 ## Delete Specific item (DELETE)
 #### Must be a registered user or logged in to add item
 #### 202 Success Responds with
-Message with body
+Message with title of listing deleted
 ```
 {
-    "message": "Item deleted"
+    "message": "The following item listing was removed:",
+    "deleted": "new 8K TV updated!"
 }
 ```
