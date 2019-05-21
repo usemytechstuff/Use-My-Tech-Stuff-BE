@@ -13,11 +13,11 @@ exports.up = function(knex, Promise) {
       user
         .string("email", 50);
       user
-        .string("firstname", 32);
+        .string("firstname");
       user
-        .string("lastname", 32);
+        .string("lastname");
       user
-        .string("phone", 15);
+        .string("phone");
       user
         .string("address");
       // user
