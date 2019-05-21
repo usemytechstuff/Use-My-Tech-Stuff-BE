@@ -38,10 +38,11 @@ router.post('/', restricted, async (req, res) => {
 router.put('/:id', restricted, async (req, res) => {
     try {
         let item = await Items.updateitem(req.params.id, req.body);
+        let changes = await Items.getItem(req.params.id);
         if (!item) {
             res.status(404).json({ error: "Item does not exist" });
         } else {
-            res.status(202).json({ message: "The following updates have been made:", item });
+            res.status(202).json({ message: "The following updates have been made:", changes });
         } 
     } catch (err) {
         res.status(500).json({ error: "Unable to update the item" });
@@ -51,10 +52,11 @@ router.put('/:id', restricted, async (req, res) => {
 router.delete('/:id', restricted, async (req, res) => {
     try {
         let item = await Items.removeItem(req.params.id, req.body);
+        const title = req.body.title;
         if (!item) {
             res.status(404).json({ error: "Item does not exist" });
         } else {
-            res.status(202).json({ message: "Item deleted" });
+            res.status(202).json({ message: "The following item listing was removed:", title });
         } 
     } catch (err) {
         res.status(500).json({ error: 'Unable to delete the item' });
