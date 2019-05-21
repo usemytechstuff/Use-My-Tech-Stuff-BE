@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
       item
         .string("title")
         .notNullable();
-        item
+      item
         .string("type")
         .notNullable();
       item

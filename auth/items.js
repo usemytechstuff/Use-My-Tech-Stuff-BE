@@ -41,7 +41,7 @@ router.put('/:id', restricted, async (req, res) => {
         if (!item) {
             res.status(404).json({ error: "Item does not exist" });
         } else {
-            res.status(202).json({ message: "The follow updates have been made:", item });
+            res.status(202).json({ message: "The following updates have been made:", item });
         } 
     } catch (err) {
         res.status(500).json({ error: "Unable to update the item" });
