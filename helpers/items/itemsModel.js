@@ -19,7 +19,7 @@ function getItem(id) {
 }
 
 async function addItem(item) {
-    const [id] = await db('items').insert(item);
+    const [id] = await db('items').insert(item).returning("id");
     return getItem(id);
 }
 
