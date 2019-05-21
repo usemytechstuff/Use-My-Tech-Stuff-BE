@@ -12,6 +12,14 @@ exports.up = function(knex, Promise) {
         .notNullable();
       user
         .string("email", 50);
+      user
+        .string("firstname", 32);
+      user
+        .string("lastname", 32);
+      user
+        .bigInteger("phone", 15);
+      user
+        .string("address");
       // user
       // user <<<<<< future table
   })
