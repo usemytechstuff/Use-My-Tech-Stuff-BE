@@ -58,4 +58,11 @@ describe('items model', () => {
             expect(foundItem.title).toEqual(mockItem.title);
         })
     })
+    describe('removeItem(id)', () => {
+        it('deletes an item', async () => {
+            const newItem = await items.addItem(mockItem);
+            const removedItem = await items.removeItem(newItem);
+            expect(removedItem).toEqual(0);
+        })
+    })
 })
