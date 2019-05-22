@@ -157,7 +157,7 @@ Message and example of body with any nonrequired inputs
 ```
 
 ## Update Specific item (PUT)
-#### Must be a registered user or logged in to add item
+#### Must be a registered user or logged in to update item
 #### 202 Success Responds with
 Message and example with updated values
 ```
@@ -179,7 +179,7 @@ Message and example with updated values
 }
 ```
 ## Delete Specific item (DELETE)
-#### Must be a registered user or logged in to add item
+#### Must be a registered user or logged in to delete item
 #### 202 Success Responds with
 Message with title of listing deleted
 ```
