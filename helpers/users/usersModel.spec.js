@@ -38,4 +38,11 @@ describe('users model', () => {
             expect(newUser.username).toEqual(mockUser.username);
         })
     });
+    describe('findById(id)', () => {
+        it('finds a user by id', async () => {
+            const newUser = await users.add(mockUser);
+            const foundUser = await users.findById(newUser.id);
+            expect(foundUser.username).toEqual(newUser.username);
+        })
+    })
 })
