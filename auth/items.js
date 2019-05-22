@@ -59,7 +59,7 @@ router.delete('/:id', restricted, async (req, res) => {
             res.status(202).json({ message: "The following item listing was removed:", title });
         } 
     } catch (err) {
-        res.status(500).json({ error: 'Unable to delete the item' });
+        res.status(500).json({ error: "Unable to delete item" });
      }
 });
 
