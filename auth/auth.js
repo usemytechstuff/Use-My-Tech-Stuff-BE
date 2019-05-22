@@ -66,11 +66,11 @@ router.get('/logout', (req, res) => {
             if (error) {
                 res.send(error);
             } else {
-                res.send('You are logged out');
+                res.send("You are logged out");
             }
         })
     } else {
-        res.end('Goodbye');
+        res.end("Goodbye");
     }
 });
 
