@@ -26,12 +26,16 @@ describe('users model', () => {
             let foundUser = await users.findBy({ username: mockUser.username });
             expect(foundUser.email).toEqual(mockUser.email);
         })
-    })
+    });
     describe('add()', () => {
         it('should add a new user', async () => {
             await users.add(mockUser);
             const user = await db('users');
             expect(user).toHaveLength(1);
         })
-    })
+        it('should add user and return created user with correct params', async () => {
+            const newUser = await users.add(mockUser);
+            expect(newUser.username).toEqual(mockUser.username);
+        })
+    });
 })
