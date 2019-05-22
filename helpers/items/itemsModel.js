@@ -4,7 +4,7 @@ module.exports = {
     getItems,
     getItem,
     addItem,
-    updateitem,
+    updateItem,
     removeItem,
 };
 
@@ -23,7 +23,7 @@ async function addItem(item) {
     return getItem(id);
 }
 
-function updateitem(id, changes) {
+function updateItem(id, changes) {
     return db('items')
     .where({ id })
     .update(changes);

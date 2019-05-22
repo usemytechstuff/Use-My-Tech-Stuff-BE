@@ -37,7 +37,7 @@ router.post('/', restricted, async (req, res) => {
 
 router.put('/:id', restricted, async (req, res) => {
     try {
-        let item = await Items.updateitem(req.params.id, req.body);
+        let item = await Items.updateItem(req.params.id, req.body);
         let changes = await Items.getItem(req.params.id);
         if (!item) {
             res.status(404).json({ error: "Item does not exist" });
