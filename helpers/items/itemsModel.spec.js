@@ -50,4 +50,12 @@ describe('items model', () => {
             expect(newItem.title).toEqual(mockItem.title);
         })
     })
+    describe('getItem(id)', () => {
+        it('gets item by id', async () => {
+            const newUser = await users.add(mockUser);
+            const newItem = await items.addItem({ ...mockItem, id: newUser.id });
+            const foundItem = await items.getItem(newItem.id);
+            expect(foundItem.title).toEqual(mockItem.title);
+        })
+    })
 })
