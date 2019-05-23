@@ -47,6 +47,12 @@ describe('auth tests', () => {
                 .send({ username: '', password: 'password' });
             expect(response.body).toEqual({ message: "Must enter a username and password" });
         })
+        it('returns correct error message if invalid email', async () => {
+            const response = await request(server)
+                .post('/api/register')
+                .send({ username: 'username', password: 'password', email: 'asdasd' });
+            expect(response.body).toEqual({ message: "Please provide valid email" });
+        })
     })
 })
 
