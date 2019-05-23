@@ -41,6 +41,12 @@ describe('auth tests', () => {
                 .send({ username: '', password: 'password' });
             expect(response.status).toEqual(401);
         })
+        it('returns correct error message if username or password  are not provided', async () => {
+            const response = await request(server)
+                .post('/api/register')
+                .send({ username: '', password: 'password' });
+            expect(response.body).toEqual({ message: "Must enter a username and password" });
+        })
     })
 })
 
