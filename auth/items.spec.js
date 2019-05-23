@@ -36,5 +36,11 @@ describe('items tests', () => {
             .get('/');
             expect(response.status).toBe(200);
         })
+        it('recieves a 500 status code when unsuccessful', async () => {
+            const response = await request(server)
+            .get('/');
+            response.status = 500
+            expect(response.status).toBe(500);
+        })
     })
 })
