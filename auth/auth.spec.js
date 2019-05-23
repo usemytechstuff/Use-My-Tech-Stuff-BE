@@ -61,7 +61,7 @@ describe('auth tests', () => {
         })
     })
     describe('POST /login endpoint', () => {
-        it('returns 200 if user is logs in with required params', async () => {
+        it('returns 200 if user logs in with required params', async () => {
             await request(server)
                 .post('/api/register')
                 .send(mockUser);
@@ -69,6 +69,15 @@ describe('auth tests', () => {
                 .post('/api/login')
                 .send({ username: mockUser.username, password: mockUser.password });
             expect(response.status).toEqual(200);
+        })
+        it('returns 401 if user logs in wwith username or password that is wrong or blank', async () => {
+            await request(server)
+                .post('/api/register')
+                .send(mockUser);
+            const response = await request(server)
+                .post('/api/login')
+                .send({ username: mockUser.username, password: 'asdasd' });
+            expect(response.status).toEqual(401);
         })
     })
 })
