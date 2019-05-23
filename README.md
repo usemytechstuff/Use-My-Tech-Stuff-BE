@@ -38,7 +38,7 @@ https://usemytechstuffapp.herokuapp.com
 
 
 #### 201 Created Responds with
-Exampe of the following body with any of the non-required inputs
+Example of the following body with any of the non-required inputs
 ```
 {
     "id": 11,
