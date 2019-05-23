@@ -1,6 +1,7 @@
 const request = require('supertest');
 const db = require('../data/dbConfig');
 const server = require('../api/server');
+const restrictedTest = require('../auth/restricted.spec');
 
 describe('items tests', () => {
     beforeEach(async () => {
@@ -53,13 +54,15 @@ describe('items tests', () => {
     //     it('should return a 500 if missing or empty params', async () => {
     //         const response = await request(server)
     //             .post('/api/items')
-    //             .send({
-    //                 title:'',
-    //                 type:'',
-    //                 description:'',
-    //                 price:'',
-    //                 availability:'',
-    //             });
+    //             .send(
+    //                 {
+    //                     title:'',
+    //                     type:'',
+    //                     description:'',
+    //                     price:'',
+    //                     availability: true
+    //                 }
+    //             );
     //         expect(response.status).toBe(500);
     //     })
     // })
