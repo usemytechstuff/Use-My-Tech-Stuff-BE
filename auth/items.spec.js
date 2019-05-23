@@ -31,5 +31,10 @@ describe('items tests', () => {
                     expect(res.body).toEqual(expected)
                 })
         })
+        it('recieves a 200 status code when successful', async () => {
+            const response = await request(server)
+            .get('/');
+            expect(response.status).toBe(200);
+        })
     })
 })
