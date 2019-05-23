@@ -24,23 +24,43 @@ describe('items tests', () => {
 
     describe('GET / endpoint', () => {
         it('should return a list of all items', () => {
-            const expected = {};
+            const expected = [];
             return request(server)
-                .get('/')
+                .get('/api/items')
                 .then(res => {
                     expect(res.body).toEqual(expected)
                 })
         })
         it('recieves a 200 status code when successful', async () => {
             const response = await request(server)
-            .get('/');
+                .get('/api/items');
             expect(response.status).toBe(200);
         })
         it('recieves a 500 status code when unsuccessful', async () => {
             const response = await request(server)
-            .get('/');
-            response.status = 500
+                .get('/api/items');
+                response.status = 500
             expect(response.status).toBe(500);
         })
     })
+    // describe('POST / endpoint', () => {
+    //     it('should add an item and return it back with message', async () => {
+    //         const response = await request(server)
+    //             .post('/api/items')
+    //             .send(mockItem);
+    //         expect(response.body.message).toEqual("Item has been added");
+    //     })
+    //     it('should return a 500 if missing or empty params', async () => {
+    //         const response = await request(server)
+    //             .post('/api/items')
+    //             .send({
+    //                 title:'',
+    //                 type:'',
+    //                 description:'',
+    //                 price:'',
+    //                 availability:'',
+    //             });
+    //         expect(response.status).toBe(500);
+    //     })
+    // })
 })
