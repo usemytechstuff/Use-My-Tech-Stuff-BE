@@ -16,7 +16,7 @@ exports.up = function(knex, Promise) {
         .string("type")
         .notNullable();
       item
-        .string("description")
+        .longtext("description")
         .notNullable();
       item
         .integer("price")
@@ -29,7 +29,7 @@ exports.up = function(knex, Promise) {
       item
         .string("model");
       item
-        .string("imgURL");
+        .longtext("imgURL");
       item
         .integer("renter")
         .unsigned()
