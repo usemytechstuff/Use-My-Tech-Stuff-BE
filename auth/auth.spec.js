@@ -35,6 +35,12 @@ describe('auth tests', () => {
             expect(response.body.email).toEqual(mockUser.email);
             expect(response.body.firstname).toEqual(mockUser.firstname);
         })
+        it('returns 401 if username or password  are not provided', async () => {
+            const response = await request(server)
+                .post('/api/register')
+                .send({ username: '', password: 'password' });
+            expect(response.status).toEqual(401);
+        })
     })
 })
 
