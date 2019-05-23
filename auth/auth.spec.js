@@ -60,6 +60,17 @@ describe('auth tests', () => {
             expect(response.body).toEqual({ message: "Password must be at least 8 characters" });
         })
     })
+    describe('POST /login endpoint', () => {
+        it('returns 200 if user is logs in with required params', async () => {
+            await request(server)
+                .post('/api/register')
+                .send(mockUser);
+            const response = await request(server)
+                .post('/api/login')
+                .send({ username: mockUser.username, password: mockUser.password });
+            expect(response.status).toEqual(200);
+        })
+    })
 })
 
 
