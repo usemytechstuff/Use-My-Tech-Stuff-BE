@@ -53,6 +53,12 @@ describe('auth tests', () => {
                 .send({ username: 'username', password: 'password', email: 'asdasd' });
             expect(response.body).toEqual({ message: "Please provide valid email" });
         })
+        it('returns correct error message if password <8 characters', async () => {
+            const response = await request(server)
+                .post('/api/register')
+                .send({ username: 'username', password: 'pass'});
+            expect(response.body).toEqual({ message: "Password must be at least 8 characters" });
+        })
     })
 })
 
