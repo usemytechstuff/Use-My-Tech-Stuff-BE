@@ -10,7 +10,7 @@ const User = require('../helpers/users/usersModel');
 function generateToken(user) {
     const payload = {
         subject: user.id,
-        usename: user.username,
+        username: user.username,
     };
     const options = {
         expiresIn: '24h',

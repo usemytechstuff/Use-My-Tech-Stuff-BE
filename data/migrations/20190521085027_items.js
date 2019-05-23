@@ -34,9 +34,7 @@ exports.up = function(knex, Promise) {
         .integer("renter")
         .unsigned()
         .references("id")
-        .inTable("users")
-      // item
-      // item <<<<<< future table
+        .inTable("users");
   })
 };
 

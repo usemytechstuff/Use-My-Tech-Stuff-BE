@@ -20,8 +20,6 @@ exports.up = function(knex, Promise) {
         .string("phone");
       user
         .string("address");
-      // user
-      // user <<<<<< future table
   })
 };
 
